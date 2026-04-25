@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xelatex -interaction=nonstopmode report.tex)",
+      "Bash(ln -sf \"第二部分 1.png\" part2_1.png)",
+      "Bash(ln -sf \"第二部分 2.png\" part2_2.png)",
+      "Bash(ln -sf \"第二部分 3.png\" part2_3.png)",
+      "Bash(ls part2_*.png)"
+    ]
+  }
+}
