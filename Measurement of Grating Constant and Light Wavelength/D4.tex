@@ -1,0 +1,251 @@
+\documentclass[a4paper,8pt,twocolumn]{article}
+\usepackage[UTF8]{ctex}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage[
+  left=2cm, 
+  right=2cm,
+  top=1.5cm,
+  bottom=2.5cm
+]{geometry}
+
+\begin{document}
+
+\title{
+  \textbf{\huge D4 光栅常量及光波波长测量}}
+\author{
+  黄雨~24352027\\
+\small 中山大学物理学院~广东~广州
+}
+
+\maketitle
+
+\section{实验目的}
+ \noindent
+ 1、光的衍射，光栅的衍射现象\\
+ 2、了解光栅的构造及作用，测量光栅常数，光波波长及角色散率方法\\
+
+\section{实验用具}
+ \noindent
+ 分光计~(分度值1‘)~KF-JJY1\\
+ 平面透射光栅\\
+ 钠灯~KF-GP20Na\\
+ 汞灯\\
+
+\section{实验原理}
+ \subsection{光栅衍射原理}
+  光栅是一种\textbf{色散组件}，在光谱分析、光信息处理等许多领域都有重要应用。光栅可分为\textbf{反射光栅}和\textbf{透射光栅}两种。\textbf{透射光栅}常用激光全息照相法于感光玻璃板上制成，可看成由许多平行、等距的单缝构成。若平均每毫米有 $n$ 条狭缝，则相邻狭缝间距 $d = a+b = 1/n$ ($\text{mm}$)，称为\textbf{光栅常数}，$n$ 称为\textbf{光栅密度}，其中 $a$ 为透明狭缝的宽度，$b$ 为不透明痕线的宽度。普通光栅密度只有几十条，优质光栅则超过千条。
+
+  用一束平行光照射光栅 D，由于各透光狭缝的\textbf{衍射}，光线将向不同的方向传播。若用透镜 L 把那些与光栅法线成角 $\varphi$ (\textbf{衍射角})的光线聚集起来，由于光程差 $\Delta$ 不同，这些光线会在透镜的焦平面上发生\textbf{干涉}。$\varphi$ 角相同时，相邻狭缝光线的\textbf{光程差}为：
+
+  \begin{equation}
+    \Delta = (a+b)\sin\varphi + (a+b)\sin i = (a+b)(\sin\varphi + \sin i)
+  \end{equation}
+
+  若光束\textbf{垂直照射}光栅，则 $i=0$，有
+  \begin{equation}
+    \Delta = (a+b)\sin\varphi = d\sin\varphi
+  \end{equation}
+
+  当衍射角 $\varphi$ 满足下列条件时：
+  \begin{equation}
+    d\sin\varphi = k\lambda \quad (k=0, \pm 1, \pm 2, \cdots)
+  \end{equation}
+
+  焦平面上会出现亮条纹。当$\varphi$满足条件
+  \begin{equation}
+    d\sin\varphi = \left(k + \frac{1}{2}\right)\lambda \quad (k=0, \pm 1, \pm 2, \cdots)
+  \end{equation}
+
+  \noindent
+  时，则出现暗条纹。其他位置则是这两者之间的过渡状态。式($\mathrm{D4.3}$)称为光栅方程， $k$称为光级数。在$\varphi=0$的方向上可观察到中央极大， 称为零级谱线($k=0$)。 其他级数的谱线对称地分布在零级谱线两侧。 如果光源中包含多种不同波长的光， 则在透镜的焦平面上会出现多种颜色的谱线, 称为光谱。同级谱线中， 短波光谱线靠近零级谱线， 衍射角小；长波光谱线衍射角大。
+  
+ \subsection{光栅的基本特征}
+  角色散率 $D$ 和分辨本领 $R$ 是表征光栅特性的两个重要参数。角色散率 $D$ 定义为同级两条谱线衍射角之差 $\Delta\varphi$ 与二者波长差$\Delta\lambda$ 之比， 可得
+  \begin{equation}
+    D = \frac{\Delta\varphi}{\Delta\lambda} = \frac{k}{d\cos\varphi}
+  \end{equation}
+
+  光栅光谱具有如下特点：
+  \begin{enumerate}
+    \item 光栅常量 $d$ 越小，角色散率 $D$ 越大, 谱线分得越开。
+    \item 高级别的光谱比低级别光谱有更大的角色散率。
+    \item 在衍射角很小时，角色散率 $D$ 近似为一常数，衍射角 $\varphi$ 与波长 $\lambda$ 成正比，光栅光谱按波长均匀排列, 称为标准光栅光谱。
+  \end{enumerate}
+
+  分辨本领 $R$ 定义为刚可以被分开的谱线的波长差 $\Delta\lambda$ 除以它们的平均波长 $\lambda$，即
+  \begin{equation}
+   R = \frac{\lambda}{\Delta\lambda} = kN
+  \end{equation}
+
+  其中，$N$ 为光栅狭缝的总数。可见通过减小光栅常量 $d$，或增大光栅的有效使用面积，均可
+  以使 $N$ 增大，从而提高光栅的分辨本领 $R$。
+
+\section{实验步骤}
+ \subsection{调节分光计和光栅}
+  \begin{enumerate}
+    \item \textbf{分光计调零}：载物台水平, 望远镜对准无穷远，平行光管输出平行光。用钠灯出射的灯照射平行光管的狭缝，转动望远镜对准平行光管，使狭缝像与望远镜分划板的竖直线重合。
+    \item \textbf{光栅片调整}：固定望远镜与平行光管后，转动游标盘，使光栅表面反射的绿色十字像的垂直线与望远镜分划板的竖直线重合，则光栅面与平行光管轴线垂直。锁紧游标盘制动螺钉。
+    \item \textbf{谱线调整}：转动望远镜并在视场中找到光栅的衍射光谱线；调节狭缝的宽度使谱线明亮、清晰。若两组光谱高度不对称，轻微
+    调节 $C'$。
+  \end{enumerate}
+
+ \subsection{测定光栅常数（钠光灯）}
+  \begin{enumerate}
+    \item 记录主光栅的位置 (望远镜分划板竖直线与零级谱线重合位置)，需同时记录游标盘上两个游标读数。
+    \item 望远镜向一边转动，使竖直线与钠黄线重合，记录位置。若观察到两条，取平均值。
+    \item 同样方向、方法，测量二级光谱钠黄线位置.
+    \item 另一个方向同样操作。
+    \item 左右两侧同级衍射角平行代入，求 $d$. 且两个 $\lambda$ 值之差不超过 $10'$ 。 否则重新调节入射光与光栅面垂直。
+  \end{enumerate}
+
+ \subsection{测量未知波长及角色散度$D$}
+  以汞灯两条黄线为未知波长谱线，测出衍射角，波长，代入(5)计算角色散度$D$及其不确定度。
+
+ \subsection{观察分辨率与光栅刻线数目$N$的关系}
+  用纸挡住光栅一部分，使光栅的有效面积减少，观察汞灯的两条黄线，记录观察到的现象并解释原因。
+
+\section{实验记录}
+ \subsection{测定光栅常数}
+  两个 $\lambda$ 值之差不超过 $10'$ ，在误差允许范围内，如表1所示：\\
+  \begin{table}[h]
+   \centering
+   \begin{tabular}{|c|c|c|}
+    \hline 
+    ~~$k$~~ & ~~~~~~~~~$\varphi_A$~~~~~~~~~ & ~~~~~~~~~$\varphi_B$~~~~~~~~~ \\ 
+    \hline 
+    0 & 91$^\circ 12'$ & 271$^\circ 15'$ \\
+      & 91$^\circ 10'$ & 271$^\circ 13'$ \\
+      & 91$^\circ 11'$ & 271$^\circ 12'$ \\
+    \hline
+   +1 & 81$^\circ 1'$ & 261$^\circ 3'$ \\
+      & 81$^\circ 1'$ & 261$^\circ 2'$ \\
+      & 81$^\circ 3'$ & 261$^\circ 5'$ \\
+    \hline
+   -1 & 101$^\circ 13'$ & 281$^\circ 14'$ \\
+      & 101$^\circ 10'$ & 281$^\circ 15'$ \\
+      & 101$^\circ 10'$ & 281$^\circ 15'$ \\
+    \hline
+   +2 & 70$^\circ 45'$ & 250$^\circ 46'$ \\
+      & 70$^\circ 43'$ & 250$^\circ 45'$ \\
+      & 70$^\circ 42'$ & 250$^\circ 44'$ \\
+    \hline
+   -2 & 111$^\circ 21'$ & 291$^\circ 30'$ \\
+      & 111$^\circ 25'$ & 291$^\circ 29'$ \\
+      & 111$^\circ 25'$ & 291$^\circ 29'$ \\
+    \hline 
+   \end{tabular}
+   \caption{钠黄线位置}
+   \label{Date_1}
+  \end{table}
+ 带入(5)得：$d = 3.3674 \mu m$
+
+ \subsection{测量未知波长及角色散度$D$}
+  \begin{table}[h]
+   \centering
+   \begin{tabular}{|c|c|c|}
+    \hline
+    ~~$k$~~ & ~~~~~~~~~$\varphi_A$~~~~~~~~~ & ~~~~~~~~~$\varphi_B$~~~~~~~~~ \\ 
+    \hline
+     0  & ~~91$^\circ 5'$~~ & ~~271$^\circ 8'$~~ \\
+        & 91$^\circ 2'$ & 271$^\circ 7'$ \\
+        & 91$^\circ 3'$ & 271$^\circ 5'$ \\
+    \hline
+    +2L & 70$^\circ 55'$ & 250$^\circ 57'$ \\
+        & 70$^\circ 55'$ & 250$^\circ 58'$ \\
+        & 70$^\circ 54'$ & 250$^\circ 58'$ \\
+    \hline
+    +2R & 70$^\circ 48'$ & 250$^\circ 53'$ \\
+        & 70$^\circ 48'$ & 250$^\circ 53'$ \\
+        & 70$^\circ 49'$ & 250$^\circ 50'$ \\
+    \hline
+    -2R & 111$^\circ 1'$ & 291$^\circ 3'$ \\
+        & 110$^\circ 59'$ & 291$^\circ 3'$ \\
+        & 111$^\circ 0'$ & 291$^\circ 2'$ \\
+    \hline
+    -2L & 111$^\circ 4'$ & 291$^\circ 8'$ \\
+        & 111$^\circ 4'$ & 291$^\circ 7'$ \\
+        & 111$^\circ 3'$ & 291$^\circ 9'$ \\
+    \hline
+   \end{tabular}
+   \caption{汞灯双黄线位置}
+   \label{Date_2}
+  \end{table}
+
+  \noindent
+  计算得：
+  \begin{eqnarray}
+    \overline{\varphi_1} = \frac{1}{6}\sum_{i = 0}^{6}\varphi_i = 20^\circ 8' \\
+    \overline{\varphi_2} = \frac{1}{6}\sum_{i = 0}^{6}\varphi_i = 20^\circ 3'
+  \end{eqnarray}
+  \begin{equation}
+    S_{\varphi_1} = \sqrt{\frac{1}{6\times5}\sum_{j = 1}^{6}(\varphi_{1j}-\overline{\varphi_1})^2} = 9.22\times10^{-4}~rad
+  \end{equation}
+  \begin{equation}
+    S_{\varphi_2} = \sqrt{\frac{1}{6\times5}\sum_{j = 1}^{6}(\varphi_{2j}-\overline{\varphi_2})^2} = 8.61\times10^{-4}~rad
+  \end{equation}
+
+  代入(3)得：
+  \begin{eqnarray}
+    \lambda_1 = 579.5 nm\\
+    \lambda_2 = 577.2 nm
+  \end{eqnarray}
+  \begin{equation}
+    D = \frac{\Delta\varphi}{\Delta\lambda} = \frac{\frac{\pi}{2180}}{2.3\times10^{-9}} = 6.26\times10^5~m^{-1}
+  \end{equation}
+  
+  不确定度分析：\\
+  A类不确定度如下：
+  \begin{eqnarray}
+    S_A & = & \sqrt{\left(\frac{\partial D}{\partial \Delta\varphi}\right)^2 u^2(\Delta\varphi) + \left(\frac{\partial D}{\partial \Delta\lambda}\right)^2 u^2(\Delta\lambda)} \\
+    & = & 5.48 \times 10^{5}~rad \cdot m^{-1}
+  \end{eqnarray}
+  B类不确定度如下：
+  \begin{eqnarray}
+    S_B(\Delta \phi) &=& \sqrt{S_B^2(\phi_1) + S_B^2(\phi_2)}\\
+     &=& \sqrt{2S_B^2(\phi)} = \sqrt{2} \cdot S_B(\phi)
+  \end{eqnarray}
+  \begin{equation}
+      S_B = \frac{a}{\sqrt{3}}
+  \end{equation}
+  可得：\\
+  \begin{equation}
+    S_B = 2.37 \times 10^{-4}～rad \cdot m^{-1}
+  \end{equation}\\
+  计算合成不确定度：
+  \begin{equation}
+    S = \sqrt{{S_A}^2 + {S_B}^2} = 5.48 \times 10^{5}~rad \cdot m^{-1}
+  \end{equation}
+  取置信区间$p = 0.95$，则$t_p = 1.96$：
+  \begin{equation}
+    D = (6.26 \pm 10.74)\times10^5~m^{-1}~rad \cdot m^{-1}
+  \end{equation}
+
+ \subsection{观察分辨率与光栅刻线数目$N$的关系}
+  谱线变暗、清晰度下降，但位置不变。
+
+\section{思考题}
+ \begin{enumerate}
+  \item 光栅分为几种类型？\\
+  光栅分为透射光栅和反射光栅。
+
+  \item 光栅对波长的测量范围怎么确定？分辨率怎么确定？\\  
+  \begin{itemize}
+    \item 测量范围：由光栅常数 $d$ 和衍射级数 $k$ 决定。  
+    \item 分辨率：由有效光栅条数 $N$ 决定，$R = kN$。
+  \end{itemize}
+
+  \item 用式 $d \sin \varphi = k \lambda \ (k=0,\pm1,\pm2,\cdots)$ 测 $d$ 值应保证什么条件？\\  
+  要求光源波长 $\lambda$ 已知且单色，角度 $\varphi$ 不要太大。
+
+  \item 如果光栅平面和转轴平行，但刻线和转轴不平行，那么整个光谱有什么异常？对测量结果有无影响？\\
+  光谱会弯曲（谱线不直），但谱线位置不变，对波长测量结果基本无影响。
+
+  \item 若平行光管的入射缝很宽，对测量有何影响？为什么？\\
+  谱线展宽、分辨率降低。原因是入射缝宽等效于多个光源叠加，使衍射条纹加宽。
+
+  \item 检索文献，尽可能多地列举测量光波长的方法？\\ 
+  光栅衍射法；棱镜分光法；干涉法（迈克尔逊干涉仪、法布里–珀罗干涉仪、劈尖干涉等）；激光光频梳频率测量法；吸收/发射光谱法。
+\end{enumerate}
+\end{document}

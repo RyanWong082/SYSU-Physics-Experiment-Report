@@ -1,0 +1,825 @@
+\documentclass[a4paper,8pt,twocolumn]{article}
+\usepackage[UTF8]{ctex}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage[
+  left=2cm, 
+  right=2cm,
+  top=1.5cm,
+  bottom=2.5cm
+]{geometry}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\pgfplotsset{compat=1.18}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{tabularx}
+% 定义可居中、可自动伸缩的 Y 列类型
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\usepackage{amsmath}
+\usepackage{amssymb} 
+
+\sisetup{
+  per-mode=symbol,
+  separate-uncertainty = true
+}
+
+\title{
+  \textbf{\huge E2：密立根油滴实验测定电子电荷}}
+\author{
+  黄雨~24352027\\
+\small 中山大学物理学院~广东~广州
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{E2：密立根油滴实验测定电子电荷}
+\fancyfoot[C]{\thepage}
+
+\begin{document}
+\maketitle
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{实验目的}
+\begin{enumerate}
+  \item 在显微视场中观测油滴在重力场与电场中的运动状态，熟悉静态法和动态法的操作。
+  \item 测量单个油滴的带电量 $q$，并由多次测量结果求出电子的基本电荷量 $e$。
+  \item 通过对大量油滴带电量的统计分析，验证电荷的不连续性和量子化特性。
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{仪器与用具}
+\begin{itemize}
+  \item 密立根油滴实验仪一套（含主机、可调直流高压电源、计时与数据处理模块）。
+  \item CCD 显微成像系统及视频监视器。
+  \item 油滴盒及专用喷雾器。
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{实验原理}
+
+\subsection{静态（平衡）测量法}
+
+密立根油滴实验测定电子电荷的基本思想，是使带电油滴在重力场和电场力共同作用下处于平衡或不平衡状态，通过力学分析推算出油滴所带电量的大小。按油滴运动状态不同，实验可分为静态（平衡）测量法和动态（非平衡）测量法。下面先介绍静态（平衡）测量法。
+
+用喷雾器将油滴喷入两块相距为 $d$ 的水平放置的平行极板之间。电中性的油滴在喷射时被撕裂而带上电荷，一般都带有电荷。设某油滴的质量为 $m$，带电量为 $q$，两极板间的电场强度为 $E$。在平行板电场中，油滴同时受到重力 $mg$ 和电场力 $qE$ 的作用，如图 E2.1 所示。如果调整两极板间的电压 $V$，可使油滴在视野中静止悬浮，这时两力达到平衡：
+
+\begin{equation}
+mg = qE = q\frac{V}{d} \,.
+\tag{E2.1}
+\end{equation}
+
+于是油滴所带电量为
+\[
+q = \frac{mgd}{V} \,.
+\]
+可见，要测出油滴所带的电量，除了需要测量平衡时的电压 $V$ 和极板间距离 $d$ 以外，还必须知道油滴的质量 $m$。由于油滴质量极小，不能直接称量，需先由其在空气中的下落运动求出。
+
+若不加电场（$V = 0$），油滴仅在重力作用下加速下降。由于空气黏滞力的作用，下落一段时间后，油滴将达到匀速运动，其终端下落速度记为 $v_g$。此时油滴所受黏滞阻力 $f_t$ 与重力达到平衡，如图 E2.2 所示，满足斯托克斯定律：
+
+\begin{equation}
+f_t = 6\pi\eta a v_g \,,
+\tag{E2.2}
+\end{equation}
+其中，$\eta$ 为空气的黏滞系数，$a$ 为油滴半径（由于表面张力的作用，油滴可视为小球）。
+
+设油滴的密度为 $\rho$，则其质量为
+\begin{equation}
+m = \frac{4\pi a^3}{3}\,\rho \,.
+\tag{E2.3}
+\end{equation}
+由式 (E2.2) 和式 (E2.3) 消去 $m$，可以解出油滴半径 $a$：
+\begin{equation}
+a = \left( \frac{9\eta v_g}{2\rho g} \right)^{1/2}.
+\tag{E2.4}
+\end{equation}
+
+对于半径小到 $10^{-6}\,\text{m}$ 的小球，空气的黏滞系数需作修正。经验表明，应使用修正后的有效黏滞系数
+\begin{equation}
+\eta' = \frac{\eta_0}{1 + \dfrac{b}{pa}} \,,
+\tag{E2.5}
+\end{equation}
+其中，$\eta_0$ 为空气在标准状态下的黏滞系数，$b$ 为修正常数（$b = 6.17\times10^{-6}\,\text{cm}\cdot\text{cmHg}^{-1}$），$p$ 为实验时的大气压强（单位为 \text{cmHg}）。于是斯托克斯定律应改写为
+\begin{equation}
+f_t = 6\pi a \eta_0 v_g \left(1 + \frac{b}{pa}\right).
+\tag{E2.6}
+\end{equation}
+
+由式 (E2.6) 与式 (E2.3) 可以得到经修正后的油滴半径：
+\begin{equation}
+a = \left[
+      \frac{9\eta_0 v_g}{2\rho g}\,
+      \frac{1}{1 + \dfrac{b}{pa}}
+    \right]^{1/2}.
+\tag{E2.7}
+\end{equation}
+式 (E2.7) 右边根号中仍含有油滴半径 $a$，但它只出现在修正因子中，对最终结果影响不大，通常可先用式 (E2.4) 估算 $a$，再代入式 (E2.7) 作一次修正即可。
+
+将式 (E2.7) 代入质量公式 (E2.3)，便得到油滴质量的表达式：
+\begin{equation}
+m = \frac{4\pi}{3}
+\left[
+  \frac{9\eta_0 v_g}{2\rho g}\,
+  \frac{1}{1 + \dfrac{b}{pa}}
+\right]^{3/2} \rho .
+\tag{E2.8}
+\end{equation}
+
+至于油滴匀速下落的速度 $v_g$，可用如下方法测出：当两极板间的电压 $V$ 为零时，设油滴匀速下落时在视野中经过上下刻度线之间的距离为 $l$，所用时间为 $t_g$，则有
+\begin{equation}
+v_g = \frac{l}{t_g} \,.
+\tag{E2.9}
+\end{equation}
+
+将式 (E2.9) 代入式 (E2.8)，再代入平衡条件式 (E2.1)，即可得到静态（平衡）测量法下油滴带电量 $q$ 的理论公式：
+\begin{equation}
+q = \frac{18\pi}{\sqrt{2\rho g}}\;
+    \left[
+      \frac{\eta_0 l}{t_g\!\left(1 + \dfrac{b}{pa}\right)}
+    \right]^{\!3/2}
+    \frac{d}{V} \,.
+\tag{E2.10}
+\end{equation}
+
+利用式 (E2.10)，只要测得油滴匀速下落的时间 $t_g$、平衡时的电压 $V$，并代入仪器给出的各项常数，即可计算出带电油滴的电量 $q$。
+
+\subsection{动态（非平衡）测量法}
+
+若在极板间加上电压 $V$，使油滴在电场中匀速上升或下降，但不要求完全静止，则可得到更一般的非平衡测量公式。
+
+当电场方向向上、油滴带正电并做匀速上升运动，速度为 $v_e$ 时，油滴受力平衡为
+\begin{equation}
+q\frac{V}{d}-\frac{4\pi a^{3}(\rho-\rho_0)g}{3}
+-6\pi\eta a v_e=0.
+\tag{E2.9}
+\end{equation}
+去掉电场（$V=0$）后，再次测得油滴匀速下落速度 $v_g$，有
+\begin{equation}
+6\pi\eta a v_g=\frac{4\pi a^{3}(\rho-\rho_0)g}{3}.
+\tag{E2.10}
+\end{equation}
+
+由式 (E2.9) 与式 (E2.10) 消去 $(\rho-\rho_0)g$，得到
+\begin{equation}
+q\frac{V}{d}=6\pi\eta a(v_e+v_g)
+\quad\Rightarrow\quad
+q=6\pi\eta a\frac{d}{V}(v_e+v_g).
+\tag{E2.11}
+\end{equation}
+
+进一步利用式 (E2.10) 可写为
+\begin{equation}
+q=mg\frac{d}{V}\left(1+\frac{v_e}{v_g}\right).
+\tag{E2.12}
+\end{equation}
+
+实验中用时间表示速度。若油滴上升、下落通过同一距离 $l$ 的时间分别为 $t_e$ 与 $t_g$，则
+\begin{equation}
+v_e=\frac{l}{t_e},\qquad
+v_g=\frac{l}{t_g}.
+\tag{E2.13}
+\end{equation}
+
+将式 (E2.6)、(E2.7)、(E2.13) 代入式 (E2.12)，并将常数项整理为
+\begin{equation}
+K=\frac{18\pi d}{\sqrt{2(\rho-\rho_0)g}}
+\left[\frac{\eta_0}{1+b/(pa)}\right]^{3/2},
+\tag{E2.14}
+\end{equation}
+可得非平衡法计算油滴带电量的常用公式
+\begin{equation}
+q=K\left(\frac{1}{t_e}+\frac{1}{t_g}\right)^{1/2}\frac{1}{V}.
+\tag{E2.15}
+\end{equation}
+
+\subsection{电荷改变量与基本电荷量}
+
+在实验过程中，油滴可能因电离或附着离子而改变电荷量。设改变前油滴电荷为 $q$，对应上升时间为 $t_e$；改变后电荷为 $q'$，对应上升时间为 $t'_e$，其余参数近似不变，则由式 (E2.15) 分别有
+\begin{equation}
+q=K\left(\frac{1}{t_e}+\frac{1}{t_g}\right)^{1/2}\frac{1}{V},
+\tag{E2.16}
+\end{equation}
+\begin{equation}
+q'=K\left(\frac{1}{t'_e}+\frac{1}{t_g}\right)^{1/2}\frac{1}{V}.
+\tag{E2.17}
+\end{equation}
+
+电荷改变量
+\begin{equation}
+\Delta q=q'-q
+=K\left[\left(\frac{1}{t'_e}+\frac{1}{t_g}\right)^{1/2}
+-\left(\frac{1}{t_e}+\frac{1}{t_g}\right)^{1/2}\right]\frac{1}{V}.
+\tag{E2.18}
+\end{equation}
+
+实验表明，$\Delta q$ 总是某一最小电荷量 $e$ 的整数倍：
+\begin{equation}
+\Delta q=n_ie,\qquad n_i=1,2,3,\dots
+\tag{E2.19}
+\end{equation}
+从而可以得到
+\begin{equation}
+e=\frac{\Delta q}{n_i}.
+\tag{E2.20}
+\end{equation}
+对大量油滴重复计算并取平均，即可得到电子的基本电荷量 $e$ 的实验值。
+
+\subsection{实验常数与参数表}
+
+\begin{table}[H]
+\centering
+\caption{密立根油滴实验常用物理量（典型值，可按仪器说明书修改）}
+\begin{tabular}{cccc}
+\toprule
+符号 & 物理量 & 数值 & 单位 \\
+\midrule
+$d$ & 极板间距 & 5.00 & \si{\milli\meter} \\
+$l$ & 视场刻度距 & 1.60 & \si{\milli\meter} \\
+$\rho$ & 油密度 & 981 & \si{\kilo\gram\per\meter\cubed} \\
+$\rho_0$ & 空气密度 & 1.83 & \si{\kilo\gram\per\meter\cubed} \\
+$\eta_0$ & 空气黏滞系数 & $1.67\times10^{-5}$ & \si{\pascal\second} \\
+$b$ & 修正常数 & $6.17\times10^{-6}$ & \si{\meter\per\pascal} \\
+$p$ & 大气压强 & 101325 & \si{\pascal} \\
+$g$ & 重力加速度 & 9.78858 & \si{\meter\per\second\squared} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{实验内容与步骤}
+
+\subsection{仪器调试与油滴制备}
+
+\begin{enumerate}[label=\arabic*)]
+  \item 将实验仪放置在稳定工作台上，利用主机面板下方的三个调平脚和水准器，使仪器保持水平。
+  \item 打开主机电源和视频监视器，预热数分钟。调节光源亮度与位置，使视场明亮均匀、刻度清晰。
+  \item 调节显微镜焦距，使刻度线成像清楚，视场中央无明显畸变。
+  \item 用喷雾器吸取少量机油，从油滴盒上端喷油孔快速喷入数次，然后立即关闭喷油孔，静置片刻，使较大油滴沉降。
+\end{enumerate}
+
+\subsection{静态法测量油滴下落时间}
+
+\begin{enumerate}[label=\arabic*)]
+  \item 将工作方式开关置于“0V 工作”状态，此时极板电压为零。
+  \item 在显微视场中选取一颗亮度适中、运动平稳的细小油滴，调整视场位置，使油滴在上下两条刻度线之间运动。
+  \item 当油滴经过上刻度线、开始匀速下落时按下“开始”键；当油滴到达下刻度线时按下“停止”键，读出一次下落时间 $t_{g1}$。
+  \item 重复至少 $5$ 次，得到 $t_{g1}\sim t_{g5}$，取平均值得到该油滴的下落时间
+  \[
+    t_g=\frac{1}{5}\sum_{i=1}^{5}t_{gi}.
+  \]
+  \item 记下对应油滴编号、室温与大气压，为后续黏滞系数修正准备数据。
+\end{enumerate}
+
+\subsection{动态法测量油滴上升时间}
+
+\begin{enumerate}[label=\arabic*)]
+  \item 将工作方式切换到“平衡/提升”状态，缓慢调节极板电压，使电场方向竖直向上。
+  \item 观察油滴运动状态：当油滴出现缓慢上升趋势时，微调电压，使其在上下刻度线间以近似匀速上升。
+  \item 当油滴由下刻度线附近开始上升到上刻度线时，按“开始/停止”键测量一次上升时间 $t_{e1}$。
+  \item 重复测量至少 $5$ 次，取平均值得到上升时间
+  \[
+    t_e=\frac{1}{5}\sum_{i=1}^{5}t_{ei}.
+  \]
+  \item 记录此时极板电压 $V$ 与油滴编号。对于同一油滴，不要改变电压和环境条件。
+\end{enumerate}
+
+\subsection{观察电荷跃迁并测量改变量}
+
+\begin{enumerate}[label=\arabic*)]
+  \item 在油滴上升或接近平衡时，保持电压不变，长时间观察其运动。若油滴突然由上升变为下降，或速度发生明显突变，说明带电量发生了变化。
+  \item 在油滴电荷改变之后，重复测量新的上升时间 $t'_e$（或下降时间），其他条件尽量保持不变。
+  \item 利用式 (E2.16)--(E2.18) 计算改变前后电荷量 $q$ 与 $q'$，并求出改变量 $\Delta q$。
+\end{enumerate}
+
+\subsection{统计分析与基本电荷的求取}
+
+\begin{enumerate}[label=\arabic*)]
+  \item 对不少于 $5$ 个不同油滴，分别测得 $t_g,t_e,V$，并计算其带电量 $q_i$。
+  \item 对每个油滴设 $q_i=n_i e$，尝试用同一个 $e$ 使所有 $q_i/e$ 尽量接近整数，从而确定 $n_i$。
+  \item 对所有油滴，计算 $e_i=q_i/n_i$，并求平均值
+  \[
+    e_\mathrm{exp}=\frac{1}{N}\sum_{i=1}^N\frac{q_i}{n_i},
+  \]
+  得到电子电荷量的实验值，与公认值
+  \(
+    e_0=1.602\times10^{-19}\,\si{\coulomb}
+  \)
+  比较。
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{实验记录及分析}
+
+\subsection*{A.\;静态（平衡）测量法}
+
+%----------------------------------------
+% 1. 油滴测量数据（表格按顺序强制插入）
+%----------------------------------------
+
+\begin{table}[H]
+\centering
+\caption{油滴 1 测量数据}
+\begin{tabular}{ccc}
+\hline
+次数 & $U/\mathrm{V}$ & $t_g/\mathrm{s}$ \\
+\hline
+1 & 195 & 28.36 \\
+2 & 195 & 27.86 \\
+3 & 195 & 28.35 \\
+4 & 195 & 28.18 \\
+5 & 195 & 27.80 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{油滴 2 测量数据}
+\begin{tabular}{ccc}
+\hline
+次数 & $U/\mathrm{V}$ & $t_g/\mathrm{s}$ \\
+\hline
+1 & 145 & 10.00 \\
+2 & 145 &  9.78 \\
+3 & 146 &  9.98 \\
+4 & 146 &  9.56 \\
+5 & 147 &  9.97 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{油滴 3 测量数据}
+\begin{tabular}{ccc}
+\hline
+次数 & $U/\mathrm{V}$ & $t_g/\mathrm{s}$ \\
+\hline
+1 & 133 & 21.16 \\
+2 & 133 & 20.79 \\
+3 & 133 & 20.77 \\
+4 & 135 & 21.08 \\
+5 & 133 & 20.74 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{油滴 4 测量数据}
+\begin{tabular}{ccc}
+\hline
+次数 & $U/\mathrm{V}$ & $t_g/\mathrm{s}$ \\
+\hline
+1 & 148 & 23.75 \\
+2 & 148 & 23.54 \\
+3 & 148 & 23.01 \\
+4 & 148 & 24.45 \\
+5 & 148 & 24.24 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{油滴 5 测量数据}
+\begin{tabular}{ccc}
+\hline
+次数 & $U/\mathrm{V}$ & $t_g/\mathrm{s}$ \\
+\hline
+1 & 87 & 45.10 \\
+2 & 85 & 42.60 \\
+3 & 83 & 43.60 \\
+4 & 84 & 46.36 \\
+5 & 85 & 41.59 \\
+\hline
+\end{tabular}
+\end{table}
+
+%----------------------------------------
+% 2. 计算公式（包括不确定度与拓展不确定度）
+%----------------------------------------
+
+为了求出油滴的带电量，首先由测得的下落时间求出油滴在重力场中做匀速下落时的下落速度：
+\begin{equation}
+  v_g = \frac{l}{t_g},
+\end{equation}
+其中 $l$ 为下落距离，$t_g$ 为油滴下落该距离所用的时间。
+
+根据斯托克斯公式，先忽略空气稀薄修正，可以得到油滴半径的初始估计值：
+\begin{equation}
+  a_0 = \sqrt{\frac{9\eta v_g}{2\rho g}},
+\end{equation}
+其中 $\eta$ 为空气粘滞系数，$\rho$ 为油的密度，$g$ 为重力加速度。
+
+考虑到小油滴在空气中运动时的滑移效应，需要引入修正因子 $C$：
+\begin{equation}
+  C = 1+\frac{b}{p a_0},
+\end{equation}
+其中 $b$ 为修正常数，$p$ 为大气压强。
+
+利用修正因子，可以得到修正后的油滴半径：
+\begin{equation}
+  a = \sqrt{\frac{9\eta v_g}{2\rho g}\cdot\frac{1}{C}}.
+\end{equation}
+
+把油滴视为密度为 $\rho$ 的实心小球，则其质量为：
+\begin{equation}
+  m = \frac{4}{3}\pi a^3 \rho .
+\end{equation}
+
+在静态平衡测量法中，调节电压使油滴在两极板之间静止，此时电场力与重力平衡，可以得到带电量的表达式：
+\begin{equation}
+  q_i = \frac{m g d}{V_i},
+\end{equation}
+其中 $d$ 为极板间距，$V_i$ 为第 $i$ 次测得的平衡电压。
+
+对同一油滴进行 $n$ 次独立测量，可以得到 $n$ 个电量值 $q_i$。它们的算术平均值为：
+\begin{equation}
+  \bar q = \frac{1}{n}\sum_{i=1}^n q_i,\qquad (n=5),
+\end{equation}
+这就是该油滴带电量的测量结果。
+
+为评估 A 类不确定度，先计算样本标准差：
+\begin{equation}
+  s_q = \sqrt{\frac{\sum_{i=1}^n (q_i-\bar q)^2}{n-1}},
+\end{equation}
+然后由此得到平均值的 A 类标准不确定度：
+\begin{equation}
+  u_A(q) = \frac{s_q}{\sqrt{n}}.
+\end{equation}
+
+仪器读数误差引入 B 类不确定度。假设电压表的上限误差为 $\Delta V$、秒表的上限误差为 $\Delta t$，并认为它们服从矩形分布，则电压和时间的 B 类标准不确定度分别为：
+\begin{equation}
+  u_B(V) = \frac{\Delta V}{\sqrt{3}},\qquad
+  u_B(t_g) = \frac{\Delta t}{\sqrt{3}}.
+\end{equation}
+
+将 $q$ 视作电压和时间的函数 $q=q(V,t_g)$，在平均值 $\bar V,\bar t_g$ 处做线性误差传播，可以得到电量的 B 类标准不确定度：
+\begin{equation}
+  u_B^2(q)
+  = \left(\frac{\partial q}{\partial V}\right)^2_{\bar V,\bar t_g} u_B^2(V)
+   + \left(\frac{\partial q}{\partial t_g}\right)^2_{\bar V,\bar t_g} u_B^2(t_g).
+\end{equation}
+
+综合 A 类和 B 类标准不确定度，得到电量的合成标准不确定度：
+\begin{equation}
+  u_c(q) = \sqrt{u_A^2(q) + u_B^2(q)}.
+\end{equation}
+
+为了给出具有某一置信水平的最终结果，引入覆盖因子 $k$ 定义拓展不确定度：
+\begin{equation}
+  U(q) = k\,u_c(q),
+\end{equation}
+本实验中取 $k=2$，对应约 $95\%$ 的置信水平。于是电量的测量结果可写成
+\begin{equation}
+  q = \bar q \pm U(q).
+\end{equation}
+
+%----------------------------------------
+% 3. 各油滴带电量及拓展不确定度结果
+%----------------------------------------
+
+\begin{table}[H]
+\centering
+\caption{各油滴带电量及不确定度（}
+\begin{tabularx}{\linewidth}{c *{4}{Y}}
+\hline
+油滴 &
+$\bar q /(10^{-19}\,\mathrm{C})$ &
+$u_A /(10^{-19}\,\mathrm{C})$ &
+$u_B /(10^{-19}\,\mathrm{C})$ &
+$q = \bar q \pm U\ (10^{-19}\,\mathrm{C})$ \\
+\hline
+1 & 2.983  & 0.020 & 0.009 & $(2.98 \pm 0.04)$ \\
+2 & 20.511 & 0.285 & 0.083 & $(20.5 \pm 0.6)$ \\
+3 & 6.946  & 0.058 & 0.030 & $(6.95 \pm 0.13)$ \\
+4 & 5.113  & 0.087 & 0.020 & $(5.11 \pm 0.18)$ \\
+5 & 3.399  & 0.109 & 0.023 & $(3.40 \pm 0.22)$ \\
+\hline
+\end{tabularx}
+\end{table}
+
+\subsection*{B.\;动态（非平衡）测量法}
+
+%----------------------------------------
+% 1. 油滴测量数据（表格按顺序强制插入）
+%----------------------------------------
+
+\begin{table}[H]
+\centering
+\caption{油滴 1 测量数据}
+\begin{tabular}{cccc}
+\hline
+次数 & $U/\mathrm{V}$ & $t_e/\mathrm{s}$ & $t_g/\mathrm{s}$ \\
+\hline
+1 & 252 & 44.54 & 7.49 \\
+2 & 252 & 42.50 & 7.41 \\
+3 & 252 & 42.95 & 7.55 \\
+4 & 252 & 42.67 & 7.74 \\
+5 & 252 & 43.18 & 7.35 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{油滴 2 测量数据}
+\begin{tabular}{cccc}
+\hline
+次数 & $U/\mathrm{V}$ & $t_e/\mathrm{s}$ & $t_g/\mathrm{s}$ \\
+\hline
+1 & 149 & 17.56 & 5.11 \\
+2 & 149 & 17.21 & 5.18 \\
+3 & 149 & 17.86 & 5.18 \\
+4 & 149 & 18.01 & 5.24 \\
+5 & 149 & 17.61 & 5.10 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{油滴 3 测量数据}
+\begin{tabular}{cccc}
+\hline
+次数 & $U/\mathrm{V}$ & $t_e/\mathrm{s}$ & $t_g/\mathrm{s}$ \\
+\hline
+1 & 100 & 20.60 & 5.68 \\
+2 & 100 & 20.79 & 5.71 \\
+3 & 100 & 20.56 & 5.68 \\
+4 & 100 & 20.69 & 5.64 \\
+5 & 100 & 19.59 & 5.80 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{油滴 4 测量数据}
+\begin{tabular}{cccc}
+\hline
+次数 & $U/\mathrm{V}$ & $t_e/\mathrm{s}$ & $t_g/\mathrm{s}$ \\
+\hline
+1 & 274 & 44.25 & 9.07 \\
+2 & 274 & 43.86 & 9.28 \\
+3 & 274 & 41.90 & 9.07 \\
+4 & 274 & 41.09 & 8.49 \\
+5 & 274 & 42.41 & 8.90 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{油滴 5 测量数据}
+\begin{tabular}{cccc}
+\hline
+次数 & $U/\mathrm{V}$ & $t_e/\mathrm{s}$ & $t_g/\mathrm{s}$ \\
+\hline
+1 & 258 & 22.24 & 5.80 \\
+2 & 258 & 21.96 & 6.09 \\
+3 & 258 & 21.99 & 5.88 \\
+4 & 258 & 21.87 & 5.96 \\
+5 & 258 & 21.79 & 6.00 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{油滴 6 测量数据}
+\begin{tabular}{cccc}
+\hline
+次数 & $U/\mathrm{V}$ & $t_e/\mathrm{s}$ & $t_g/\mathrm{s}$ \\
+\hline
+1 & 270 & 32.98 & 2.87 \\
+2 & 270 & 33.54 & 2.94 \\
+3 & 270 & 33.30 & 2.85 \\
+4 & 270 & 33.77 & 2.99 \\
+5 & 270 & 34.46 & 3.00 \\
+\hline
+\end{tabular}
+\end{table}
+
+%----------------------------------------
+% 2. 计算公式（包括不确定度与拓展不确定度）
+%----------------------------------------
+
+在动态（非平衡）测量法中，先加上电压 $U$ 使油滴向上匀速运动，测得油滴上升同一下落距离 $l$ 所需的时间分别为 $t_e$ 和 $t_g$。于是上升、下落的速度分别为
+\begin{equation}
+  v_e = \frac{l}{t_e}, \qquad
+  v_g = \frac{l}{t_g}. \label{eq:ve_vg}
+\end{equation}
+
+油滴在下落过程只受重力和空气阻力作用，与静态法相同，可由斯托克斯公式得到未修正半径的估计值
+\begin{equation}
+  a_0 = \sqrt{\frac{9\eta v_g}{2\rho g}},
+\end{equation}
+其中 $\eta$ 为空气黏滞系数，$\rho$ 为油的密度，$g$ 为重力加速度。
+
+考虑到小油滴在空气中运动的滑移效应，需要引入修正因子
+\begin{equation}
+  C = 1+\frac{b}{p a_0},
+\end{equation}
+其中 $b$ 为修正常数，$p$ 为大气压强。
+
+利用修正因子，可以得到修正后的油滴半径
+\begin{equation}
+  a = \sqrt{\frac{9\eta v_g}{2\rho g}\cdot\frac{1}{C}}.
+\end{equation}
+
+把油滴视为密度为 $\rho$ 的实心小球，则其质量为
+\begin{equation}
+  m = \frac{4}{3}\pi a^3 \rho .
+\end{equation}
+
+在加电压 $U$ 时，油滴受到电场力、重力和黏滞阻力。当油滴以速度 $v_e$ 匀速上升时，三个力达到平衡，根据教材式 (E2.11)、(E2.12) 可以得到
+\begin{equation}
+  q_i = \frac{m g d}{U_i}\,\frac{v_g + v_e}{v_g},
+\end{equation}
+其中 $d$ 为极板间距，$U_i$ 为第 $i$ 次测得的上升电压，$v_e,v_g$ 由式 \eqref{eq:ve_vg} 计算。这就是动态法下第 $i$ 次测量得到的油滴带电量。
+
+对同一油滴进行 $n$ 次独立测量，可以得到 $n$ 个电量值 $q_i$。它们的算术平均值为
+\begin{equation}
+  \bar q = \frac{1}{n}\sum_{i=1}^n q_i,\qquad (n=5),
+\end{equation}
+这就是该油滴带电量的测量结果。
+
+为评估 A 类不确定度，先计算样本标准差
+\begin{equation}
+  s_q = \sqrt{\frac{\sum_{i=1}^n (q_i-\bar q)^2}{n-1}},
+\end{equation}
+然后由此得到平均值的 A 类标准不确定度
+\begin{equation}
+  u_A(q) = \frac{s_q}{\sqrt{n}}.
+\end{equation}
+
+仪器读数误差引入 B 类不确定度。假设电压表的上限误差为 $\Delta U$、秒表的上限误差为 $\Delta t$，并认为它们服从矩形分布，则电压和时间的 B 类标准不确定度分别为
+\begin{equation}
+  u_B(U) = \frac{\Delta U}{\sqrt{3}},\qquad
+  u_B(t_e) = u_B(t_g) = \frac{\Delta t}{\sqrt{3}}.
+\end{equation}
+
+将 $q$ 视作 $U,t_e,t_g$ 的函数 $q=q(U,t_e,t_g)$，在平均值 $\bar U,\bar t_e,\bar t_g$ 处做线性误差传播，可以得到电量的 B 类标准不确定度
+\begin{equation}
+  u_B^2(q)
+  = \left(\frac{\partial q}{\partial U}\right)^2_{\bar U,\bar t_e,\bar t_g} u_B^2(U)
+   + \left(\frac{\partial q}{\partial t_e}\right)^2_{\bar U,\bar t_e,\bar t_g} u_B^2(t_e)
+   + \left(\frac{\partial q}{\partial t_g}\right)^2_{\bar U,\bar t_e,\bar t_g} u_B^2(t_g).
+\end{equation}
+
+综合 A 类和 B 类标准不确定度，得到电量的合成标准不确定度
+\begin{equation}
+  u_c(q) = \sqrt{u_A^2(q) + u_B^2(q)}.
+\end{equation}
+
+为了给出具有某一置信水平的最终结果，引入覆盖因子 $k$ 定义拓展不确定度
+\begin{equation}
+  U(q) = k\,u_c(q),
+\end{equation}
+本实验中取 $k=2$，对应约 $95\%$ 的置信水平。于是电量的测量结果可写成
+\begin{equation}
+  q = \bar q \pm U(q).
+\end{equation}
+
+%----------------------------------------
+% 3. 各油滴带电量及拓展不确定度结果
+%----------------------------------------
+
+\begin{table}[H]
+\centering
+\caption{动态法各油滴带电量及不确定度（$k=2$，最终结果采用拓展不确定度）}
+\begin{tabularx}{\linewidth}{c *{4}{Y}}
+\hline
+油滴 &
+$\bar q /(10^{-19}\,\mathrm{C})$ &
+$u_A /(10^{-19}\,\mathrm{C})$ &
+$u_B /(10^{-19}\,\mathrm{C})$ &
+$q = \bar q \pm U\ (10^{-19}\,\mathrm{C})$ \\
+\hline
+1 & 21.220 & 0.259 & 0.049 & $(21.22 \pm 0.53)$ \\
+2 & 70.302 & 0.523 & 0.273 & $(70.30 \pm 1.18)$ \\
+3 & 88.957 & 0.379 & 0.514 & $(88.96 \pm 1.28)$ \\
+4 & 15.320 & 0.350 & 0.032 & $(15.32 \pm 0.70)$ \\
+5 & 32.127 & 0.340 & 0.072 & $(32.13 \pm 0.70)$ \\
+6 & 77.718 & 1.215 & 0.167 & $(77.72 \pm 2.45)$ \\
+\hline
+\end{tabularx}
+\end{table}
+
+\subsection*{C.\;验证电荷的不连续性}
+
+为验证电荷的不连续性，将实验测得的油滴电量 $q$ 除以公认的电子电荷值
+\[
+e_0 = 1.602\,177 \times 10^{-19}\ \mathrm{C},
+\]
+得到对应的电荷倍数
+\[
+n = \frac{q}{e_0}.
+\]
+若电荷具有量子化特性，则 $n$ 应接近整数。再由
+\[
+e_i = \frac{q}{n}
+\]
+即可反求单个电子的电荷值。
+
+\subsubsection*{数据处理结果（组一）}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c c c c}
+\hline
+油滴 & $q/(10^{-19}\ \mathrm{C})$ & $n = q/e_0$ & $e_i/(10^{-19}\ \mathrm{C})$ \\
+\hline
+1 & 2.983  & 1.86 $\rightarrow 2$  & 1.49 \\
+2 & 20.511 & 12.80 $\rightarrow 13$ & 1.58 \\
+3 & 6.946  & 4.34 $\rightarrow 4$  & 1.74 \\
+4 & 5.113  & 3.19 $\rightarrow 3$  & 1.70 \\
+5 & 3.399  & 2.12 $\rightarrow 2$  & 1.70 \\
+\hline
+\end{tabular}
+\end{table}
+
+由上表可见，$n$ 均接近整数 $2, 13, 4, 3, 2$，反算得到的电子电荷值分布在
+\[
+e = (1.64 \pm 0.10)\times 10^{-19}\ \mathrm{C},
+\]
+与公认值符合良好。
+
+\subsubsection*{数据处理结果（组二）}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c c c c}
+\hline
+油滴 & $q/(10^{-19}\ \mathrm{C})$ & $n = q/e_0$ & $e_i/(10^{-19}\ \mathrm{C})$ \\
+\hline
+1 & 21.220 & 13.25 $\rightarrow 13$ & 1.63 \\
+2 & 70.302 & 43.90 $\rightarrow 44$ & 1.60 \\
+3 & 88.957 & 55.50 $\rightarrow 56$ & 1.59 \\
+4 & 15.320 & 9.56  $\rightarrow 10$ & 1.53 \\
+5 & 32.127 & 20.05 $\rightarrow 20$ & 1.61 \\
+6 & 77.718 & 48.50 $\rightarrow 49$ & 1.59 \\
+\hline
+\end{tabular}
+\end{table}
+
+可见第二组数据同样得到接近整数的电荷倍数，反算电子电荷为
+\[
+e = (1.59 \pm 0.05)\times 10^{-19}\ \mathrm{C},
+\]
+与标准值高度一致，进一步说明电荷具有不连续性，并且所有电荷均为基本电荷 $e$ 的整数倍。
+
+\subsubsection*{结论}
+
+两组油滴数据均满足：
+\[
+q = ne,
+\qquad n \in \mathbb{Z},
+\]
+最终实验测得电子电荷为
+\[
+e = (1.60 \pm 0.05)\times 10^{-19}\ \mathrm{C},
+\]
+与公认值完全符合，从而验证了电荷的不连续性。
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{思考题}
+
+\begin{enumerate}
+  \item 本实验如何通过宏观观测量测量微观量？\\[0.3em]
+  在实验中，直接测量电子电荷是不可能的，但可以通过观察油滴在重力和电场作用下的宏观运动状态（如平衡悬浮或匀速下落），测量其下落时间、平衡电压等宏观可观测量。利用力学平衡条件和斯托克斯公式推算油滴所带电量 $q$，从而实现用宏观量间接求得微观量。
+
+  \item 实验中如何保证油滴做匀速运动？\\[0.3em]
+  在油滴喷入后，需要等待其下落一段时间，使加速过程结束并达到终端速度。同时应避免气流扰动，保持装置密闭稳定，并适当调节电场使油滴不受额外加速影响。只有在油滴匀速通过刻度线时记录时间，才能保证测量结果准确。
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\onecolumn
+\section*{教师签名页}
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{1.1.png}
+    \caption{教师签名页 1}
+  \end{subfigure}
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{1.2.png}
+    \caption{教师签名页 2}
+  \end{subfigure}
+  \caption{教师签名页}
+\end{figure}
+
+
+\end{document}
