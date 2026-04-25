@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pdftotext gpldesign_exp_dx_1.pdf -)",
+      "Bash(python3 -c ' *)"
+    ]
+  }
+}
