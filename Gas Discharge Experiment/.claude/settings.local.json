@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c ' *)",
+      "Bash(pdftotext -layout 实验讲义.pdf -)",
+      "Bash(pdftotext -layout 实验操作.pdf -)",
+      "Bash(pip3 install *)",
+      "Bash(xelatex -interaction=nonstopmode report.tex)"
+    ]
+  }
+}
